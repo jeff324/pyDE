@@ -3,7 +3,7 @@
 ### Installation
 
 ```shell
-git clone https://github.com/jef324/pyDE
+git clone https://github.com/jeff324/pyDE
 python setup.py install
 ```
 
@@ -111,7 +111,7 @@ The model we will be working with is as follows:
 
 mu_mu ~ N(3,3)  
 mu_sd ~ Gamma(1,1)  
-sd_a ~ Gamma(1,1)
+sd_a ~ Gamma(1,1)  
 sd_scale ~ Gamma(1,1)  
 sd_{s} ~ Gamma(sd_a,sd_scale)  
 mu_{s} ~ N(mu_mu,mu_sd)  
