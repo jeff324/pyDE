@@ -102,7 +102,7 @@ print(d)
 # plot the chains for mu
 plt.plot(np.transpose(theta[:,0,:]))
 ```
-![Alt text](images/norm_ind.jpg?raw=true "Example Output")
+![Alt text](https://github.com/jeff324/jeff324.github.io/blob/master/pyDE/images/norm_ind.jpg?raw=true "Example Output")
 
 Next, we will show how to modify the non-hierarchical model to become a hierarchical model.
 
