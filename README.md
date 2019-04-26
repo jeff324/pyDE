@@ -11,7 +11,7 @@ python setup.py install
 
 ```python
 # Define the parameters of the model
-pars = {
+theta = {
 }
 
 # Define the prior
