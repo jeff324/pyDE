@@ -31,8 +31,8 @@ samples = de.sample(data, model, num_samples=500)
 
 In this example, we will sample from the following model:
 
-mu ~ N(10,3)
-sd ~ Gamma(1,1)
+mu ~ N(10,3)  
+sd ~ Gamma(1,1)  
 data ~ N(mu,sd)
 
 We first import some additional packages for plotting (`matplotlib`), analysis (`numpy`),
@@ -58,6 +58,9 @@ data = norm.rvs(loc=mu,scale=sd,size=data_size)
 ```
 Next, we define the model. The model takes three inputs, a parameters block (`theta` in this example),
 a funciton for the log prior, and a function for the log likelihood.
+
+The `init` key specifies the bounds of a uniform distribution from which to 
+draw samples from.
 
 ```python
 # Define the model
@@ -106,12 +109,12 @@ Next, we will show how to modify the non-hierarchical model to become a hierarch
 ### Hierarchical Normal Example
 The model we will be working with is as follows:
 
-mu_mu ~ N(3,3)
-mu_sd ~ Gamma(1,1)
+mu_mu ~ N(3,3)  
+mu_sd ~ Gamma(1,1)  
 sd_a ~ Gamma(1,1)
-sd_scale ~ Gamma(1,1)
-sd_{s} ~ Gamma(sd_a,sd_scale)
-mu_{s} ~ N(mu_mu,mu_sd)
+sd_scale ~ Gamma(1,1)  
+sd_{s} ~ Gamma(sd_a,sd_scale)  
+mu_{s} ~ N(mu_mu,mu_sd)  
 data_{s} ~ N(mu_{s},sd_{s})
 
 First, we import packages as before and generate 10 simulated subjects, each
@@ -159,6 +162,9 @@ de_params={'b':.001,
 ```
 We then define the model in terms of subject-level and group-level paramters.
 Additionally, we specify a function that computes the log hyperprior.
+
+Note the additional specification of the `block` key. It indicates `mu_mu` and `mu_sd`
+should be sampled independently of `sd_a` and `sd_scale`.
 ```python
 #### Model parameters
 #subject-level
